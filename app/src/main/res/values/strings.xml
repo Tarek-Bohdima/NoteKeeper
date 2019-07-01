@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NoteKeeper</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_note_list">NoteKeeper</string>
+    <string name="title_activity_main">Edit Note</string>
+    <string name="menu_action_next_title">Next</string>
 </resources>
