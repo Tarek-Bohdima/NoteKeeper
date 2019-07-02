@@ -16,15 +16,16 @@ object DataManager {
         val note = NoteInfo(course, noteTile, noteText)
         notes.add(note)
         return notes.lastIndex
-       // return 0 // return the note with index 0 (first note)
+        // return 0 // return the note with index 0 (first note)
     }
 
     fun findNote(course: CourseInfo, noteTile: String, noteText: String): NoteInfo? {
         for (note in notes)
-            if(course == note.course &&
-                    noteTile == note.title &&
-                    noteText == note.text)
-                return  note
+            if (course == note.course &&
+                noteTile == note.title &&
+                noteText == note.text
+            )
+                return note
         return null
     }
 
@@ -42,7 +43,7 @@ object DataManager {
         courses[course.courseId] = course
     }
 
-     fun initializeNotes() {
+    fun initializeNotes() {
         var course = courses["android_intents"]!!
         var note = NoteInfo(
             course, "Dynamic intent resolution",

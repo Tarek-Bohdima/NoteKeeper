@@ -19,17 +19,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val adapterCourses = ArrayAdapter<CourseInfo>(this, android.R.layout.simple_spinner_item,
-            DataManager.courses.values.toList())
+        val adapterCourses = ArrayAdapter<CourseInfo>(
+            this, android.R.layout.simple_spinner_item,
+            DataManager.courses.values.toList()
+        )
         adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCourses.adapter = adapterCourses
 
-        notePosition = savedInstanceState?.getInt(NOTE_POSITION, POSITION_NOT_SET) ?:
-            intent.getIntExtra(NOTE_POSITION, POSITION_NOT_SET)
+        notePosition = savedInstanceState?.getInt(NOTE_POSITION, POSITION_NOT_SET) ?: intent.getIntExtra(
+            NOTE_POSITION,
+            POSITION_NOT_SET
+        )
 
         if (notePosition != POSITION_NOT_SET)
             displayNote()
-        else{
+        else {
             createNewNote()
         }
         Log.d(tag, "onCreate")
@@ -74,8 +78,10 @@ class MainActivity : AppCompatActivity() {
         if (notePosition > DataManager.notes.lastIndex) {
             val message = "Note not found"
             showMessage(message)
-            Log.e(tag, "Invalid note position $notePosition," +
-                    " max valid position ${DataManager.notes.lastIndex}")
+            Log.e(
+                tag, "Invalid note position $notePosition," +
+                        " max valid position ${DataManager.notes.lastIndex}"
+            )
             return
         }
         Log.i(tag, "Displaying text for position $notePosition")
@@ -102,7 +108,7 @@ class MainActivity : AppCompatActivity() {
             val menuItem = menu?.findItem(R.id.action_next)
             if (menuItem != null) {
                 menuItem.icon = getDrawable(R.drawable.ic_block_white_24dp)
-                menuItem.isEnabled = false
+//                menuItem.isEnabled = false
             }
         }
 

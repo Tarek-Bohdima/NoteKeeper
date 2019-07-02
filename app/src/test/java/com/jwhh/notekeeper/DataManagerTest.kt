@@ -1,9 +1,8 @@
 package com.jwhh.notekeeper
 
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Test
 
 class DataManagerTest {
     @Before
@@ -33,7 +32,7 @@ class DataManagerTest {
         val noteText1 = "This is the body of my test note"
         val noteText2 = "This is the body of my second test note"
 
-        val index1 = DataManager.addNote(course, noteTitle , noteText1)
+        val index1 = DataManager.addNote(course, noteTitle, noteText1)
         val index2 = DataManager.addNote(course, noteTitle, noteText2)
 
         val note1 = DataManager.findNote(course, noteTitle, noteText1)
