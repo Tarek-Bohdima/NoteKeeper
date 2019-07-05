@@ -6,8 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/activity_note_list"
-        tools:context=".NoteListActivity">
+        tools:showIn="@layout/app_bar_items"
+        tools:context=".itemsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"

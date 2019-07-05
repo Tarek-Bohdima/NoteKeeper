@@ -4,4 +4,17 @@
     <string name="title_activity_note_list">NoteKeeper</string>
     <string name="title_activity_main">Edit Note</string>
     <string name="menu_action_next_title">Next</string>
+    <string name="title_activity_items">NoteKeeper</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_notes">Notes</string>
+    <string name="menu_courses">Courses</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
 </resources>
