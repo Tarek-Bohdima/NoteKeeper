@@ -8,12 +8,17 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_main"
         tools:context=".NoteActivity">
+
     <Spinner
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinnerCourses" android:layout_marginEnd="32dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"/>
+            android:id="@+id/spinnerCourses"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="32dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"/>
 
     <EditText
             android:layout_width="0dp"
@@ -22,12 +27,15 @@
             android:gravity="start|top"
             android:ems="10"
             android:id="@+id/textNoteText"
-            app:layout_constraintTop_toBottomOf="@+id/textNoteTitle"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@+id/spinnerCourses"
-            app:layout_constraintEnd_toEndOf="@+id/spinnerCourses"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            android:hint="@string/note_text_hint"/>
+            android:hint="@string/"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -35,7 +43,16 @@
             android:gravity="start|top"
             android:ems="10"
             android:id="@+id/textNoteTitle"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerCourses" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCourses"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@+id/spinnerCourses"
-            app:layout_constraintEnd_toEndOf="@+id/spinnerCourses" android:hint="@string/note_title_hint"/>
+            app:layout_constraintEnd_toEndOf="@+id/spinnerCourses"
+            android:hint="@string/note_title_hint"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.500684"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
