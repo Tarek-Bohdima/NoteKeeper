@@ -14,13 +14,15 @@ class NoteActivity : AppCompatActivity() {
     private val tag = this::class.simpleName
     private var notePosition = POSITION_NOT_SET
 
+   val noteGetTogetherHelper = NoteGetTogetherHelper(this, lifecycle)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val adapterCourses = ArrayAdapter<CourseInfo>(
-            this, android.R.layout.simple_spinner_item,
+        val adapterCourses = ArrayAdapter<CourseInfo>(this,
+            android.R.layout.simple_spinner_item,
             DataManager.courses.values.toList()
         )
         adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -39,9 +41,15 @@ class NoteActivity : AppCompatActivity() {
         Log.d(tag, "onCreate")
     }
 
-    private fun createNewNote() {
+
+
+    /*  private fun createNewNote() {
         DataManager.notes.add(NoteInfo())
         notePosition = DataManager.notes.lastIndex
+    }*/
+
+    private fun createNewNote() {
+        notePosition = DataManager.addNote(NoteInfo())
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -62,12 +70,16 @@ class NoteActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_settings -> true
             R.id.action_next -> {
-                if (notePosition < DataManager.notes.lastIndex) {
-                    moveNext()
-                } else {
-                    val message = "No more Notes"
+                if (DataManager.isLastNoteId(notePosition)) {
+                    val message = "No more notes"
                     showMessage(message)
+                } else {
+                    moveNext()
                 }
+                true
+            }
+            R.id.action_get_together -> {
+                noteGetTogetherHelper.sendMessage(DataManager.loadNote(notePosition))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -104,7 +116,7 @@ class NoteActivity : AppCompatActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        if (notePosition >= DataManager.notes.lastIndex) {
+        if (notePosition >= DataManager.notes.lastIndex) { // or if(DataManager.isLastNoteId(notePosition))
             val menuItem = menu?.findItem(R.id.action_next)
             if (menuItem != null) {
                 menuItem.icon = getDrawable(R.drawable.ic_block_white_24dp)

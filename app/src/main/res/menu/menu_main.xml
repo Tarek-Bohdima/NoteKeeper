@@ -8,6 +8,13 @@
             android:id="@+id/action_next"
             app:showAsAction="ifRoom|withText"
             android:icon="@drawable/ic_forward_white_24dp"/>
+
+    <item
+            android:id="@+id/action_get_together"
+            android:icon="@drawable/ic_people_white_24dp"
+            android:title="Get together"
+            app:showAsAction="ifRoom" />
+
     <item
             android:id="@+id/action_settings"
             android:title="@string/action_settings"
